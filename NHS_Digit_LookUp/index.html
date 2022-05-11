@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="Styles/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/bootstrap/bootstrap-grid.min.css" rel="stylesheet" type="text/css" /> 
+    <link href="Styles/system-styles/todo-styles.css" rel="stylesheet" type="text/css" />
+
+    <title>NHS Digital GP & GP Practice Data Bank</title>
+
+</head>
+<body>
+        <div class="jumbotron">
+            <h1 class="display-3">GP Practice Data</h1>
+            <p class="lead">An exploration into NHS Digital API calls...</p>
+            <hr class="my-2">
+            <!--<p class="lead">
+                <a class="btn btn-outline-secondary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+            </p>-->
+        </div>
+
+    <section id="main" class="container-fluid">
+      
+        <div id="apicallOptions" class="form-inline"></div>
+           
+
+        <!--<div class="custom-control custom-radio custom-control-inline"></div>-->
+        <div class="row">
+        <div id="fetchDataChoice" class="form-inline centered p-3 mb-xl-3 border rounded text-center shadow-sm">
+            
+            <label class="form-check-label pr-3">
+                <input class="form-check-input" type="radio" name="fetchChoice" id="rbtnPrimaryRole" value="PrimaryRole" onclick="selectedAPIOption();"> Primary Role
+            </label>
+
+              <label class="form-check-label pl-3 pr-3">
+                <input class="form-check-input" type="radio" name="fetchChoice" id="rbtnNonPrimaryRole" value="NonPrimaryRole" onclick="selectedAPIOption();"> Non Primary Role
+            </label>
+
+            <label class="form-check-label pl-3 pr-3">
+                <input class="form-check-input" type="radio" name="fetchChoice" id="rbtnPracticeName" value="PracticeName" onclick="selectedAPIOption();"> Practice Name
+            </label>
+
+            <label class="form-check-label pl-3 pr-3">
+                <input class="form-check-input" type="radio" name="fetchChoice" id="rbtnPracticeCode" value="PracticeCode" onclick="selectedAPIOption();"> Practice Code
+            </label>
+          </div>
+        </div>
+    </div>
+
+        <div id="apiSearchInfo" class="p-2 mb-xl-2 centered w-50 load_hide">
+
+            <div id="searchPrimary" class="form-inline">
+                <input id="btnPrimaryRoleSearch" class="btn btn-outline-primary btn centered w-50" role="button" type="button" value="Search" width="150px" /> 
+            </div>          
+
+            <div id="searchNonPrimary" class="input-group">
+              <input id="txtNonPrimarySearch" type="text" class="form-control" placeholder="Search Non Primary" aria-label="Non-primary" aria-describedby="btn-non-primary">
+                <div class="input-group-append" id="btn-non-primary">
+                  <button id="btnNonPrimarySearch" class="btn btn-outline-info" type="button">Search</button>
+                </div>
+            </div>
+
+            <div id="searchPracticeName" class="input-group">
+              <input id="txtPracticeNameSearch" type="text" class="form-control" placeholder="Search Practice Name" aria-label="Practice Name" aria-describedby="btn-practiceName">
+                <div class="input-group-append" id="btn-practiceName">
+                  <button id="btnPracticeNameSearch" class="btn btn-outline-info" type="button">Search</button>
+                </div>
+            </div>
+
+              <div id="searchOrgName" class="input-group">
+               <input id="txtOrgNameSearch" type="text" class="form-control" placeholder="Search Organisation Name" aria-label="Organisation Name" aria-describedby="btn-Org-Name">
+                <div class="input-group-append" id="btn-Org-Name">
+                  <button id="btnOrgNameSearch" class="btn btn-outline-info" type="button">Search</button>
+                </div>
+              </div>
+        </div>
+
+        <div id="pnlConfirmSearch" class="text-center bg-light load_hide">
+            <hr/>
+                <p id="lblConfirmMultiple" class="lead"></p>
+            <hr/>
+        </div>
+
+       <div id="practiceNameConfirmContainer" class="p-3 mb-3">
+        
+        <!--<label class="form-inline numberedPractices display-5 lead p-3 border border-dark bg-light ">1</label>-->
+       </div>
+
+       <div id="selOrganisationDetails" class="p-3 mb-3 centered">  
+        <!--<table id="tblSelOrganisationDetails" class="table table-bordered"></table>-->
+      </div>
+
+
+      <div id="jsSelOrganisationDetails" class="p-3 mb-3 centered"></div> 
+
+      <div id="searchAnother">
+          <hr/>
+          <button id="btnNewSearcg" class="btn btn-primary float-right mb-3" type="button">Search another</button>
+      </div>
+
+</div>
+    
+</section>
+
+<footer>
+
+</footer>
+
+<script type="text/javascript" src="Scripts/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="Scripts/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="Scripts/system-scripts/gppracticecall-epraccur.js"></script>
+   
+</body>
+</html>
+
