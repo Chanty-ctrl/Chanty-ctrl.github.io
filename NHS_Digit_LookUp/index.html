@@ -16,16 +16,24 @@
 </head>
 <body>
         <div class="jumbotron">
-            <h1 class="display-3">GP Practice Data</h1>
-            <p class="lead">An exploration into NHS Digital API calls...</p>
-            <hr class="my-2">
-            <!--<p class="lead">
-                <a class="btn btn-outline-secondary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-            </p>-->
+            <h1 class="display-2">GP Practice Data</h1>
+            <p class="lead display-5">An exploration into NHS Digital API calls...</p>
+            <hr/>
+            <!--<hr class="my-2">-->
+            <p> This is a simple web application which uses API calls from NHS Digital.  <br/>
+                Users are able to search GP Practice details from NHS Digital.
+            </p>
+            <div>
+              <hr/>
+              <a href="~/../../index.html" class="btn btn-primary float-right mb-3" type="button">Go back</a>
+          </div>
         </div>
-
-    <section id="main" class="container-fluid">
+        
+        <section id="main" class="container-fluid">
       
+      <div id="sectionSearchp" class="text-center mb-3 display-6">
+        <i>i</i><span class=" text-info"> Select an option to search for Practice Details.</span>
+      </div>
         <div id="apicallOptions" class="form-inline"></div>
            
 
@@ -95,12 +103,11 @@
         <!--<table id="tblSelOrganisationDetails" class="table table-bordered"></table>-->
       </div>
 
-
-      <div id="jsSelOrganisationDetails" class="p-3 mb-3 centered"></div> 
+      <!--<div id="jsSelOrganisationDetails" class="p-3 mb-3 centered"></div>-->
 
       <div id="searchAnother">
           <hr/>
-          <button id="btnNewSearcg" class="btn btn-primary float-right mb-3" type="button">Search another</button>
+          <button id="btnNewSearch" href="#" class="btn btn-primary float-right mb-3" type="button">Search another</button>
       </div>
 
 </div>

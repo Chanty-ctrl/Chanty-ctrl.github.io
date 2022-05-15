@@ -1,5 +1,5 @@
 /*********************************************************************** */
-/*  https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data?msclkid=45ebdbf9c19411ec938ed684fb4cf581 */
+/* https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data?msclkid=45ebdbf9c19411ec938ed684fb4cf581 */
 /* https://digital.nhs.uk/services/organisation-data-service/technical-guides/guidance-for-developers/search-endpoint */
 /*
 /************************************************************************* */
@@ -10,26 +10,27 @@ document.onload = () =>{}
 
 var fetchedOrganisation = {};
 
-$(document).ready(() =>{
+//$(document).ready(() =>{
+$(function() {
+
     $("#apiSearchInfo").removeClass("load_hide");
     $('#searchAnother').hide();
-
+    
+    $('#sectionSearch').show();
     clearSearchOptions();
 });
 
-//$('#btnGpPracticeSearch').bind('click', function(){
-//})
-
-//document.querySelector
 
 selectedAPIOption = () => {
-
+    
     //Clear all search options...
     clearSearchOptions();
 
-    // Better to use JQuery here... Javascript will need a loop instead then search for the checked button...
+    // Better to use JQuery here... Javascript will need a loop instead then search for the checked button...    
     let selFetchChoice = $('input[name="fetchChoice"]:checked').val();
     //const selFetchChoice = document.querySelectorAll('input[name="fetchChoice"]');
+
+    $("pnlConfirmSearch").hide();
 
     //console.log(selFetchChoice);
     switch(selFetchChoice){
@@ -65,39 +66,57 @@ selectedAPIOption = () => {
     }
 }
 
+scrollMe = () => {
+    $('html,body').animate({
+        scrollTop: $(window).scrollTop() + 515
+    });
+}
+
 document.getElementById("btnPrimaryRoleSearch").addEventListener("click", () => {
     $("#practiceNameConfirmContainer").empty();
     fetchViaPrimaryRole();
+    scrollMe();
 });
 
 document.getElementById("btnNonPrimarySearch").addEventListener("click", () => {
     let searchNonPrimary = document.getElementById('txtNonPrimarySearch').value;
     $("#practiceNameConfirmContainer").empty();
     fetchViaNonPrimaryRole(searchNonPrimary);
+    scrollMe();
 });
 
-document.getElementById("btnPracticeNameSearch").addEventListener("click", () => {
+document.getElementById("btnPracticeNameSearch").addEventListener("click", () => {   
     let searchPracticeName = document.getElementById('txtPracticeNameSearch').value;
     $("#practiceNameConfirmContainer").empty();
     fetchViaPracticeName(searchPracticeName)
+    scrollMe(); 
 });
 
 document.getElementById("btnOrgNameSearch").addEventListener("click", () => {
      let searchOrgCode = document.getElementById('txtOrgNameSearch').value;
      $("#practiceNameConfirmContainer").empty();
-    fetchViaPracticeCode(searchOrgCode);
+    fetchViaPracticeCode(searchOrgCode);   
+    scrollMe(); 
 })
 
-document.getElementById("searchAnother").addEventListener('click', () =>{
+document.getElementById("btnNewSearch").addEventListener('click', () =>{
+    
+    //clearSearchOptions();
+    $('#lblConfirmMultiple').text('');
 
+    $("#sectionSearch").show();
     $("#fetchDataChoice").show();
-    clearSearchOptions();
+    $("#pnlConfirmSearch").hide(); 
+    $('#apiSearchInfo').show();
+    $("#practiceNameConfirmContainer").show();
 
+    $('#searchAnother').hide();
     $("#practiceNameConfirmContainer").empty();
     $("#jsSelOrganisationDetails").empty();
     $("#selOrganisationDetails").empty();
-
 });
+
+
 
 // Primary Role (RO177) ...
 fetchViaPrimaryRole = () => {
@@ -107,7 +126,7 @@ fetchViaPrimaryRole = () => {
 
     if(response.Organisations.length > 1) {
      $("#pnlConfirmSearch").show();
-     $("#lblConfirmMultiple").text("There are a total of " + response.Organisations.length + " practices found, please confirm a practice");
+     $("#lblConfirmMultiple").text("There are a total of " + response.Organisations.length + " practices found, please confirm a practice");  
     }
 
     for(var i = 0; i < response.Organisations.length; i++) {
@@ -125,13 +144,13 @@ fetchViaNonPrimaryRole = (nonPriRoleID) => {
         fetch('https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations?NonPrimaryRoleId=' + nonPriRoleID)
         .then(result => result.json())
         .then(response => {
-
+           
          console.log(response)
         if(response.Organisations.length > 1) {
             $("#pnlConfirmSearch").show();
-            $("#lblConfirmMultiple").text("There are a total of " + response.Organisations.length + " practices found, please confirm a practice");
+            $("#lblConfirmMultiple").text("There are a total of " + response.Organisations.length + " practices found, please confirm a practice");  
            }
-
+       
            for(var i = 0; i < response.Organisations.length; i++) {
              console.log(response.Organisations[i]);
              createConfirmPanel(response.Organisations[i], i + 1);
@@ -139,9 +158,9 @@ fetchViaNonPrimaryRole = (nonPriRoleID) => {
               console.log(response);
           })
           .catch(console.error);
-       }
+}
 
-// GP Practice Name Search ...
+// GP Practice Name Search ... 
 fetchViaPracticeName = (practiceName) => {
     fetch(' https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations?Name=' + practiceName)
     .then(result => result.json())
@@ -149,13 +168,13 @@ fetchViaPracticeName = (practiceName) => {
 
         //console.log(response);
         // console.log(response.Organisations[0]);
-
+     
         if(response.Organisations.length > 1) {
             //document.getElementById('pnlConfirmSearch').style.visibility = "visible";
             $("#pnlConfirmSearch").show();
-
+             
             let multipleText = "Please confirm a practice, there are a total of " + response.Organisations.length + " practices found. ";
-            $("#lblConfirmMultiple").text(multipleText); //(`${multipleText}`);
+            $("#lblConfirmMultiple").text(multipleText); //(`${multipleText}`);  
         }
 
         for(var i = 0; i < response.Organisations.length; i++) {
@@ -172,25 +191,25 @@ fetchViaPracticeCode = (orgCode) =>{
         fetch('https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/' + orgCode) //A81023')
         .then(result => result.json())
         .then(response => {
-
+          
           console.log(response);
             /* if(response.Organisations.length > 1) {
                 $("#pnlConfirmSearch").show();
-
+                 
                 let multipleText = "Please confirm a practice, there are a total of " + response.Organisations.length + " practices found. ";
-                $("#lblConfirmMultiple").text(multipleText); //(`${multipleText}`);
+                $("#lblConfirmMultiple").text(multipleText); //(`${multipleText}`);  
             }*/
-
+    
             createConfirmPanel(response.Organisation, 1);
            /*   for(var i = 0; i < response.Organisation.length; i++) {
                 console.log(response.Organisation[i]);
                 createConfirmPanel(response.Organisation[i], i + 1);
             }*/
         })
-        .catch(console.error);
+        .catch(console.error);      
 }
 
-// Confirmed GP Practice Name Search ...
+// Confirmed GP Practice Name Search ... 
 fetchConfirmedOrg = (confiredOrg) => {
 
     fetch(confiredOrg)
@@ -204,22 +223,24 @@ fetchConfirmedOrg = (confiredOrg) => {
        $('#apiSearchInfo').hide();
        $("#practiceNameConfirmContainer").hide();
 
+       $("#pnlConfirmSearch").hide();
+
        $('#searchAnother').show();
 
-       let statusCell = response.Organisation.Status
+       let statusCell = response.Organisation.Status     
        let bgStatus = (statusCell == "Active") ? "bg-success" : "bg-danger";
-
+ 
        $('#selOrganisationDetails').append(
-
+        
         '<div class="text-center mb-1">' +
         '<span class="display-4 mb-3">' + response.Organisation.Name + '</span>' +
         '</div><hr/>' +
         '<table class="w-75 centered mb-lg-3 table table-bordered rounded mb-2">' +
-        '<th class="table-info" colspan="2"></th>' +
+        '<th class="'+ bgStatus +'" colspan="2">'+ response.Organisation.Status +'</th>' +
         '<tbody>' +
         '<tr>' +
-        '<td>Status</td>' +
-        '<td class="'+ bgStatus +'">'+ response.Organisation.Status +'</td>' +
+        '<td>Last Updated</td>' +
+        '<td>' + response.Organisation.LastChangeDate + '</td>' +
         '</tr>' +
             '<tr>' +
             '<td>Organisation Code</td>' +
@@ -230,34 +251,37 @@ fetchConfirmedOrg = (confiredOrg) => {
             '<td>'+ response.Organisation.GeoLoc.Location.AddrLn1 + '<br />' +
                     response.Organisation.GeoLoc.Location.AddrLn2 + '<br />' +
                     response.Organisation.GeoLoc.Location.Town + '<hr />' +
-                    response.Organisation.GeoLoc.Location.County  +
-            '</td>' +
+                    response.Organisation.GeoLoc.Location.County  +       
+            '</td>' +        
          '</tr>' +
          '<tr>' +
          '<td>Postcode</td>' +
          '<td>' + response.Organisation.GeoLoc.Location.PostCode + '</td>' +
          '</tr>' +
-        '</tbody></table>'
+        '</tbody></table>' 
        );
+
 
       // showPracticeViaName();
     })
     .catch(console.error);
 }
-
+    
 /* Add objects and constuctor
 const objPracticeName = {
     practiceName: response.Name
 }
 */
 
-//createConfirmPanel = (response, orgCount) => {
-    createConfirmPanel = (response, orgCount) => {
-    try {
 
+//createConfirmPanel = (response, orgCount) => {
+createConfirmPanel = (response, orgCount) => {
+    try {
+        
     let practiceName = response.Name;
     let orgStats = response.Status;
     let pLink = response.OrgLink;
+   
     //let viaCode
     let orgCode;
     if (typeof response.OrgId == 'object'){
@@ -265,7 +289,7 @@ const objPracticeName = {
     }else{
         orgCode= response.OrgId;
     }
-
+   
     let newButtonID = "btnConfirmPName_Yes_" + orgCode;
 
    $('#practiceNameConfirmContainer').append(
@@ -284,11 +308,11 @@ const objPracticeName = {
          '<td>' + orgCode + '</td>' +
      '</tr>' +
  '</tbody></table>' +
- '<div class="mb-4 bg-light">' +
- '<input id="' + newButtonID + '"  role="button" class="btn btn-success btn-sm float-right ml-1" value="Confirm">' +
-'</div>' +
-' </div>'+
-' </div>');
+ '<div class="mb-4 bg-light">' + 
+ ' <button id="' + newButtonID + '"class="btn btn-success float-right ml-1 w-25 type="button">Confirm</button>' +
+ '</div>' +
+ ' </div>'+
+ ' </div>');
 
 //console.log("org link " + pLink);
 
@@ -297,22 +321,20 @@ const objPracticeName = {
     //alert("you have selected button ID :: " + newButtonID + ' : ' + pLink);
     fetchConfirmedOrg(pLink);
   });
-
-
-  } catch (error) {
+  } catch (error) {      
  }
 }
 
 showPracticeViaName = (response) => {
 
     //try {
-
+  
             let tblContainer = document.getElementById('jsSelOrganisationDetails');
             let tbl = document.createElement('table');
 
             //tbl.classList.add('w-75 centered mb-lg-3 table table-bordered rounded mb-2');
             tbl.classList.add("w-75", "centered", "mb-lg-3", "table", "table-bordered", "rounded", "mb-2");
-
+   
             for (var i = 0; i < 3; i++) {
                 var tr = tbl.insertRow();
                 for (var j = 0; j < 2; j++) {
@@ -329,9 +351,9 @@ showPracticeViaName = (response) => {
                 }
             }
             tblContainer.appendChild(tbl);
-
+        
     //} catch (error) {
-
+        
     //}
 }
 
@@ -342,6 +364,6 @@ clearSearchOptions = () => {
     $("#searchOrgName").hide();
 
     $("#pnlConfirmSearch").hide();
+    $("#sectionSearch").hide();
     //document.getElementById('pnlConfirmSearch').style.visibility = "hidden";
 }
-

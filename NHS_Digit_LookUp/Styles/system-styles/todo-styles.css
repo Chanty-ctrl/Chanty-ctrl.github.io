@@ -41,3 +41,8 @@ body{
     line-height: 1.2;
 }
 
+.jumbotron {
+    background-color: #750581 !important;
+    color:#f7f7f7 !important;
+    border-radius: 0 !important
+}
