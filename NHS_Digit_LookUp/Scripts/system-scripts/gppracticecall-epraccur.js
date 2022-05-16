@@ -30,7 +30,7 @@ selectedAPIOption = () => {
     let selFetchChoice = $('input[name="fetchChoice"]:checked').val();
     //const selFetchChoice = document.querySelectorAll('input[name="fetchChoice"]');
 
-    $("pnlConfirmSearch").hide();
+    $("#pnlConfirmSearch").hide();
 
     //console.log(selFetchChoice);
     switch(selFetchChoice){
@@ -70,6 +70,7 @@ scrollMe = () => {
     $('html,body').animate({
         scrollTop: $(window).scrollTop() + 515
     });
+    $("#sectionSearchp").hide();
 }
 
 document.getElementById("btnPrimaryRoleSearch").addEventListener("click", () => {
@@ -109,6 +110,7 @@ document.getElementById("btnNewSearch").addEventListener('click', () =>{
     $("#pnlConfirmSearch").hide(); 
     $('#apiSearchInfo').show();
     $("#practiceNameConfirmContainer").show();
+    $("#sectionSearchp").show();
 
     $('#searchAnother').hide();
     $("#practiceNameConfirmContainer").empty();

@@ -3141,7 +3141,8 @@ input, select, textarea {
 			font-family:"Source Sans Pro";
 			font-weight: 600;
 			margin-bottom:10px;
-			text-transform: uppercase;	
+			text-transform: uppercase;
+			line-height: 45px;	
 		}
 
 		.highlight-box{
@@ -3415,7 +3416,7 @@ input, select, textarea {
 			background-attachment: fixed;
 			background-color: #ffffff; /*section_bg_main*/
 			/* Background to main page overlay ...*/
-			background-image: url("images/main-bg-panel_2.jpg");
+			background-image: url("../../images/pic02.jpg");			
 			/*background-position: center center;
 			background-size: cover;
 			box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25);
@@ -3903,7 +3904,7 @@ input, select, textarea {
 				}
 
 				.spotlight .content {
-					background-color: #1c1d26;
+					background-color: #fff;
 					border-width: 0 !important;
 					border-top-width: 0.35em !important;
 					bottom: auto !important;
@@ -4116,12 +4117,12 @@ input, select, textarea {
 				top: 0;
 				width: 100%;
 				z-index: 10001;
-				background: #272833;
+				background: #ffffff;			
 				box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
 			}
 
 				#titleBar .title {
-					color: #ffffff;
+					color:#272833;
 					display: block;
 					font-weight: 300;
 					height: 44px;
@@ -4159,7 +4160,7 @@ input, select, textarea {
 					}
 
 					#titleBar .toggle:before {
-						background: #e44c65;
+						background: #9b7fba;
 						color: rgba(255, 255, 255, 0.5);
 						content: '\f0c9';
 						display: block;
