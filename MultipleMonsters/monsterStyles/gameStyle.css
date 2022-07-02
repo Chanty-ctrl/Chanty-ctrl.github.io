@@ -1,0 +1,51 @@
+body {
+    margin:0;
+    padding:0;
+    box-sizing: content-box;
+}
+
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+#divGame table td {
+    width: 120px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#divGame table td:hover{
+    border:solid 2px aqua;
+
+}
+
+
+.no-circle{
+    width: 80px;
+    height: 80px;
+    background-color: yellow;
+}
+
+.td-rightValueSelected{
+    background-color: yellow;
+
+}
+
+.td-wrongValueSelected{
+    background-color:crimson;   
+}
+
+.display-5 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    line-height: 1;
+}
+
+.display-6 {
+    font-size: 1.5rem;
+    font-weight: 100;
+    line-height: 1;
+}

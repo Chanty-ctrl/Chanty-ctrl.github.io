@@ -1,0 +1,582 @@
+/*COMMON VARIABLES*/
+$dark-theme-color: #1c1c1c;
+$accent-theme-color: #A42CD6;
+$light-theme-color: #fff;
+
+/*MIXINS*/
+
+/*transitions mixin*/
+@mixin transition-mix($property: all, $duration: 0.2s, $timing: linear, $delay: 0s) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+  transition-delay: $delay;
+}
+
+/*position absolute mixin*/
+@mixin position-absolute ($top: null, $left: null, $right: null, $bottom: null) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+}
+
+/* common styles !!!YOU DON'T NEED THEM  */
+body {
+  font: {
+    family: 'Niramit', sans-serif;;
+    size: 16px;
+  }
+  color: $dark-theme-color;
+}
+
+.container {
+  width: 550px;
+  margin: 50px auto 0px auto;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+
+  font: {
+    weight: 400;
+    size: 35px;
+  }
+
+  span {
+    font: {
+      family: 'Kaushan Script', cursive;
+    }
+    color: $accent-theme-color;
+  }
+}
+
+.submenu {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 0;
+}
+
+.submenu__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  a {
+    @include transition-mix;
+
+    display: inline-flex;
+    align-items: center;
+
+    font: {
+      size: 17px;
+    }
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: $accent-theme-color;
+    }
+
+    i {
+      color: $accent-theme-color;
+      margin-right: 5px;
+    }
+  }
+}
+
+.content-block {
+  margin-top: 50px;
+
+  h2 {
+    margin-bottom: 30px;
+
+    font: {
+      weight: 400;
+    }
+  }
+}
+
+.content-block__effect {
+  margin-bottom: 50px;
+}
+
+.progress-container {
+    margin-bottom: 30px;
+}
+
+.play-animation {
+  @include transition-mix;
+  
+  padding: 5px 15px;
+  margin: auto;
+  
+  font: {
+    family: inherit;
+    size: inherit;
+  }
+  color: inherit;
+  
+  border: 2px solid $dark-theme-color; 
+  border-radius: 4px;
+  background-color: transparent;
+  box-shadow: none;
+  outline: none;
+  
+  cursor: pointer; 
+  
+  &:hover {
+    color: $light-theme-color;
+    
+    background-color: $dark-theme-color;
+  }
+}
+
+/* progress bar styles !!!YOU NEED THEM */
+$progress-bar-width: 550px;
+$progress-bar-offset-vert: 35px;
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.progress-bar {
+  position: relative;
+  
+  width: $progress-bar-width;
+  
+  box-sizing: border-box;
+  
+  &:not(:last-child) {
+    margin-bottom: $progress-bar-offset-vert;
+  }
+}
+
+.progress-bar--lg-offset {
+  
+  &:not(:last-child) {
+    margin-bottom: $progress-bar-offset-vert * 1.5;
+  }
+}
+
+.progress-bar__bar,
+.progress-bar__bar-inner,
+.progress-bar__value,
+.progress-bar__skill {
+  box-sizing: border-box;
+}
+
+.progress-bar__bar {
+  position: relative;
+  
+  height: 100%;
+  width: 100%;
+  
+  overflow: hidden;
+}
+
+.progress-bar__bar--no-overflow {
+    overflow: visible;
+}
+
+.progress-bar__bar-inner {
+  @include position-absolute($top: 0, $left: 0);
+  
+  height: 100%;
+  
+  transform: scaleX(0);
+  transform-origin: left center;
+  
+  &.js-animated {
+    @include transition-mix($duration: .5s, $timing: cubic-bezier(0.1, 1.14, 0.31, 1.06));
+    
+    transform: scaleX(1);
+  }
+}
+
+.progress-bar__skill,
+.progress-bar__value {
+  font: {
+    size: 14px;
+  }
+  letter-spacing: 1px;
+}
+
+.progress-bar__value--aligned-value {
+  transform: translateX(-50%);
+}
+
+/* progress bar #1 styles */
+$progress-1-height: 20px;
+$progress-1-border: #dddddd;
+$progress-1-color-1: #00BFB3;
+$progress-1-color-2: #037971;
+
+$progress-1-label-top: - ($progress-1-height + 7);
+
+.progress-bar--1 {
+  height: $progress-1-height;
+  padding: 4px;
+  
+  border: 1px solid $progress-1-border;
+  border-radius: $progress-1-height;
+}
+
+.progress-bar__bar-inner--1 {
+  background-image: 
+    linear-gradient(to right, $progress-1-color-1 0, $progress-1-color-2 100%);
+  background-size: 200%;
+  background-position: 0 0;
+  
+  border-radius: $progress-1-height;
+}
+
+.progress-bar__skill--1 {
+  @include position-absolute($top: $progress-1-label-top, $left: -20px);
+  
+  opacity: 0;
+  
+  &.js-animated {
+    @include transition-mix;
+    
+    left: 0;
+    
+    opacity: 1;
+  }
+}
+
+.progress-bar__value--1 {
+  @include position-absolute($top: $progress-1-label-top, $right: -20px);
+  
+  opacity: 0;
+  
+  &.js-animated {
+    @include transition-mix;
+    
+    right: 0;
+    
+    opacity: 1;
+  }
+}
+
+/* progress bar #2 styles */
+$progress-2-height: 20px;
+
+$progress-2-color-1: #5EEB5B;
+$progress-2-color-2: #358600;
+
+$progress-2-gradient-bg-size: 42px;
+
+$progress-2-label-top: - ($progress-2-height + 3);
+
+.progress-bar--2 {
+  height: $progress-2-height;
+  
+  box-shadow: 
+    0 2px 2px 0 rgba(0,0,0,0.14), 
+    0 3px 1px -2px rgba(0,0,0,0.12), 
+    0 1px 5px 0 rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+@keyframes progress-2-bg-animation {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  
+  100% {
+    background-position: 0 0, $progress-2-gradient-bg-size 0;
+  }
+}
+
+.progress-bar__bar-inner--2 {
+  background-image: 
+    linear-gradient(to top, rgba(255, 255, 255, .15), rgba(0,0,0,.2)),
+    linear-gradient(135deg, $progress-2-color-1, $progress-2-color-1 33%, $progress-2-color-2 33%, $progress-2-color-2 66%, $progress-2-color-1 66%);
+  background-size: 100% 100%, $progress-2-gradient-bg-size 100%;
+  background-position: 0 0, 0 0;
+  border-radius: 3px;
+  
+  &.js-animated {
+    animation: progress-2-bg-animation 1.5s linear 0s infinite;
+  }
+}
+
+.progress-bar__skill--2 {
+  @include position-absolute($top: $progress-2-label-top - 10, $left: 0);
+  
+  opacity: 0;
+  
+  &.js-animated {
+    @include transition-mix;
+    
+    top: $progress-2-label-top;
+    
+    opacity: 1;
+  }
+}
+
+.progress-bar__value--2 {
+  @include position-absolute($top: $progress-2-label-top - 10, $right: 0);
+  
+  opacity: 0;
+  
+  &.js-animated {
+    @include transition-mix;
+    
+    top: $progress-2-label-top;
+    
+    opacity: 1;
+  }
+}
+
+/* progress bar #3 styles */
+$progress-3-height: 5px;
+
+$progress-3-color-1: #efefef;
+$progress-3-color-2: #F40076;
+$progress-3-color-3: #1A936F;
+$progress-3-color-4: #2274A5;
+$progress-3-color-5: #fff;
+
+$progress-3-label-top: - ($progress-3-height + 19);
+
+$progress-3-value-icon-dimensions: 5px;
+
+.progress-bar--3 {
+  height: $progress-3-height;
+  
+  background-color: $progress-3-color-1;
+  
+  &:nth-child(1) {
+    
+    .progress-bar__bar-inner,
+    .progress-bar__value{
+      background-color: $progress-3-color-2;
+      
+      &:after {
+        border-top-color: $progress-3-color-2;
+      }
+    }
+  }
+  
+  &:nth-child(2) {
+    
+    .progress-bar__bar-inner,
+    .progress-bar__value{
+      background-color: $progress-3-color-3;
+      
+      &:after {
+        border-top-color: $progress-3-color-3;
+      }
+    }
+  }
+  
+  &:nth-child(3) {
+    
+    .progress-bar__bar-inner,
+    .progress-bar__value{
+      background-color: $progress-3-color-4;
+      
+      &:after {
+        border-top-color: $progress-3-color-4;
+      }
+    }
+  }
+}
+
+.progress-bar__skill--3 {
+  @include position-absolute($top: $progress-3-label-top, $left: - 20px);
+  
+  opacity: 0;
+  
+  &.js-animated {
+    @include transition-mix;
+    
+    left: 0;
+    
+    opacity: 1;
+  }
+}
+
+.progress-bar__value--3 {
+  @include position-absolute($top: ($progress-3-label-top - $progress-3-value-icon-dimensions - 14));
+  
+  display: inline-block;
+  padding: 3px 8px;
+  
+  font: {
+    size: 10px;
+  }
+  color: $progress-3-color-5;
+  
+  opacity: 0;
+  
+  &:after {
+    @include position-absolute($left: 50%, $bottom: - ($progress-3-value-icon-dimensions * 2));
+    
+    display: block;
+    width: 0;
+    height: 0;
+    
+    content: '';
+    
+    transform: translateX(-50%);
+    
+    border: $progress-3-value-icon-dimensions solid transparent;
+    border-top: $progress-3-value-icon-dimensions solid;
+  }
+  
+  &.js-animated {
+    @include transition-mix($delay: .45s);
+    
+    top: ($progress-3-label-top - $progress-3-value-icon-dimensions - 4);
+    
+    opacity: 1;
+  }
+}
+
+/* progress bar #4 styles */
+$progress-4-height: 3px;
+$progress-4-decoration-dimensions: 8px;
+
+$progress-4-color-1: #efefef;
+$progress-4-color-2: #000; 
+
+$progress-4-label-top: - ($progress-4-height + 19);
+
+.progress-bar--4 {
+  height: $progress-4-height;
+  
+  background-color: $progress-4-color-1;
+}
+
+.progress-bar__bar-inner--4 {
+  background-color: $progress-4-color-2;
+  
+  &:after {
+    @include position-absolute($top: 50%, $right: 0);
+    
+    display: block;
+    width: $progress-4-decoration-dimensions;
+    height: $progress-4-decoration-dimensions;
+    
+    content: '';
+    
+    transform: translateY(-50%);
+    
+    background-color: $progress-4-color-2;
+    border-radius: 50%;
+  }
+}
+
+.progress-bar__value--4 {
+  @include position-absolute($top: $progress-4-label-top);
+  
+  font: {
+    size: 10px;
+  }
+  
+  opacity: 0;
+  
+  &.js-animated {
+    @include transition-mix($delay: .45s);
+    
+    opacity: 1;
+  }
+}
+
+
+.progress-bar__skill--4 {
+  @include position-absolute($top: $progress-4-label-top, $left: - 20px);
+  
+  opacity: 0;
+  
+  &.js-animated {
+    @include transition-mix;
+    
+    left: 0;
+    
+    opacity: 1;
+  }
+}
+
+/* progress bar #5 styles */
+$progress-5-height: 30px;
+
+$progress-5-color-1: #f7f7f7;
+$progress-5-color-2: #57B8FF;
+$progress-5-color-3: #4E148C;
+$progress-5-color-4: #AF1B3F;
+$progress-5-color-5: #fff;
+
+$progress-5-label-offset-horz: 10px;
+
+.progress-bar--5 {
+  height: $progress-5-height;
+  
+  background-color: $progress-5-color-1;
+  
+  &:nth-child(1) {
+    
+    .progress-bar__bar-inner {
+      background-color: $progress-5-color-2;
+    }
+  }
+  
+  &:nth-child(2) {
+    
+    .progress-bar__bar-inner {
+      background-color: $progress-5-color-3;
+    }
+  }
+  
+  &:nth-child(3) {
+    
+    .progress-bar__bar-inner {
+      background-color: $progress-5-color-4;
+    }
+  }
+}
+
+.progress-bar__skill--5 {
+  @include position-absolute($top: 50%, $left: $progress-5-label-offset-horz);
+  
+  color: $progress-5-color-5;
+  
+  transform: translateY(-50%);
+  
+  opacity: 0;
+  
+  &.js-animated {
+    @include transition-mix;
+    
+    opacity: 1;
+  }
+}
+
+.progress-bar__value--5 {
+  @include position-absolute($top: 50%);
+  
+  color: $progress-5-color-5;
+  
+  transform: translateX(-100%) translateX(- $progress-5-label-offset-horz) translateY(-50%);
+  
+  opacity: 0;
+  
+  z-index: 10;
+  
+  &.js-animated {
+    @include transition-mix($delay: .45s);
+    
+    opacity: 1;
+  }
+}
