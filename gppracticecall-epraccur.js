@@ -345,7 +345,7 @@ createConfirmPanel = (response, orgCount) => {
 
    $('#practiceNameConfirmContainer').append(
     ' <label class="form-inline numberedPractices lead p-2 border shadow-sm">'+ orgCount +'</label>' +
-    '<div class="card w-75 centered mb-lg-3">' +
+    '<div class="card w-75 centered mb-lg-3 foundCards">' +
     '<h5 class="card-header">' + practiceName + '</h5>' +
     '<div class="card-body">' +
     '<h5 class="card-title">Practice Status :: '+ orgStats +'</h5>' +
@@ -360,7 +360,7 @@ createConfirmPanel = (response, orgCount) => {
      '</tr>' +
  '</tbody></table>' +
  '<div class="mb-4 bg-light">' + 
- ' <button id="' + newButtonID + '"class="btn btn-success float-right ml-1 w-25 type="button">Confirm</button>' +
+ ' <button id="' + newButtonID + '"class="btn btn-success float-right ml-1 btnConWidth type="button">Confirm</button>' +
  '</div>' +
  ' </div>'+
  ' </div>');

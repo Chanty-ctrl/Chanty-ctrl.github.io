@@ -1,132 +1,549 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Chantelle McCalla :: Mini Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=11" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--<link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css"/>-->
+		<!--<link rel="stylesheet" href="NHS_Digit_Lookup/Styles/bootstrap/bootstrap.min.css">-->
 
-    <link href="Styles/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="Styles/bootstrap/bootstrap-grid.min.css" rel="stylesheet" type="text/css" /> 
-    <link href="Styles/system-styles/todo-styles.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload landing">
+		<div id="page-wrapper">
 
-    <title>NHS Digital GP & GP Practice Data Bank</title>
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo">Hi there, my portofolio is still in progress! 😊</a></h1>
 
-</head>
-<body>
-        <div class="jumbotron">
-            <h1 class="display-2">GP Practice Data</h1>
-            <p class="lead display-5">An exploration into NHS Digital API calls...</p>
-            <hr/>
-            <!--<hr class="my-2">-->
-            <p> This is a simple web application which uses API calls from NHS Digital.  <br/>
-                Users are able to search GP Practice details from NHS Digital.
-            </p>
-            <div>
-              <hr/>
-              <a href="~/../../index.html" class="btn btn-primary float-left mb-3" type="button">Go back</a>
-          </div>
-        </div>
-        
-        <section id="main" class="container-fluid">
-      
-      <div id="sectionSearchp" class="text-center mb-3 display-6">
-        <i class="bi bi-info-circle text-info"></i><span class=" text-info"> Select an option to search for Practice Details.</span>
-      </div>
-        <div id="apicallOptions" class="form-inline"></div>
-           
+						<nav id="nav">
+							<ul>
+								<!--<li><a href="index.html">Home</a></li>-->
+								<li>
+									<a href="NHS_Digit_LookUp/nhsDigitalAPI.html">NHS GP API Demo</a>  ||
+									<a href="MultipleMonsters/multiMonsters.html">Multiplication Game</a>
+								</li>
+							</ul>
+						</nav>
+						
+					</header>
+				</header>
 
-        <!--<div class="custom-control custom-radio custom-control-inline"></div>-->
-        <div class="row">
-        <div id="fetchDataChoice" class="form-inline centered p-3 mb-xl-3 border rounded text-center shadow-sm">
-            
-            <label class="form-check-label pr-3">
-                <input class="form-check-input" type="radio" name="fetchChoice" id="rbtnPrimaryRole" value="PrimaryRole" onclick="selectedAPIOption();"> Primary Role
-            </label>
+			<!-- Banner -->
+				<section id="banner">
+					<div class="content align-center hello-header">
+						<header class="">
+							<!--<img src="images/imgTitle.png" width="250px"/>
+										-->
+						<!--<p class="hello">
+								<span class="hello-header">Hello World!!</span>
+							</p>-->
+							<div>
+							<h1 class="hello-intro">Hello World!!</h1>
+							<!--<img src="images/front-end/rainbow.png" width="250px" style="position: absolute;
+							top: 110px;	right: 350px;" />-->
+							<h1 class="hello-intro">My name is <span class="hello_span"> Chantelle McCalla</span></h1>
+							<hr/>
 
-              <label class="form-check-label pl-3 pr-3">
-                <input class="form-check-input" type="radio" name="fetchChoice" id="rbtnNonPrimaryRole" value="NonPrimaryRole" onclick="selectedAPIOption();"> Non Primary Role
-            </label>
+							
+							<h3 class="hello-intro-short"> I am a passionate C# and VB.NET <span class="highlight-box">Software Developer</span> for both the Web and Client Applications <br/>
+						     with an interest in learning new technologies...</h3>
 
-            <label class="form-check-label pl-3 pr-3">
-                <input class="form-check-input" type="radio" name="fetchChoice" id="rbtnPracticeName" value="PracticeName" onclick="selectedAPIOption();"> Practice Name
-            </label>
+							</div>		
+						</header>			
+					</div>
+					<br/>
+					<a href="#one" class="goto-next scrolly">Next</a>
+					
+				</section>
 
-            <label class="form-check-label pl-3 pr-3 d-none">
-                <input class="form-check-input" type="radio" name="fetchChoice" id="rbtnPracticeCode" value="PracticeCode" onclick="selectedAPIOption();"> Practice Code
-            </label>
-          </div>
-        </div>
-    </div>
+			<!-- One -->
+				<section id="one" class="spotlight style1 bottom">
+					<span class="image fit main"><img src="images/pic02.jpg" alt="" /></span>
+					<div class="content">
+						<div class="container">
 
-        <div id="apiSearchInfo" class="p-2 mb-xl-2 centered w-50 load_hide">
+							<div class="row">
+								<div class="col-12 col-12-medium align-center">
+									<header>
+										<h2 style="color:rgb(130, 14, 238); ">Server Side Experiences</h2>
+									</header>
 
-            <div id="searchPrimary" class="form-inline">
-                <input id="btnPrimaryRoleSearch" class="btn btn-outline-primary btn centered w-50" role="button" type="button" value="Search" width="150px" /> 
-            </div>          
+								
+									
+								<!--	<div class="actions float-right">
+										<a href="NHS_Digit_LookUp/index.html" class="button btn-purple">NHS Digital API Demo</a>
+									</div> http://www.pascalvangemert.nl/#/profile
+								https://fonts.google.com/specimen/Roboto+Flex-->
+								</div>
+								<p>I have worked and developed multiple web applications using the Visual Studio IDE from 2008 to 2019.  <br/>
+									Most of the projects I have developed were mainly focused
+									around patient care and staffing due to the nature of past employments for the NHS. 
+								</p>
+								  <div class="align-right w-100">
+									<a href="NHS_Digit_LookUp/nhsDigitalAPI.html" class="button btn-purple" style="position: relative;">NHS Digital API Demo</a>
+	
+									<a href="MultipleMonsters/multiMonsters.html" class="button btn-yellow" style="position: relative;">Multiplication Dash Game</a>
+								  </div>
+								
+							</div>
 
-            <div id="searchNonPrimary" class="input-group">
-              <input id="txtNonPrimarySearch" type="text" class="form-control" placeholder="Search Non Primary" aria-label="Non-primary" aria-describedby="btn-non-primary" required>
-                <div class="input-group-append" id="btn-non-primary">
-                  <button id="btnNonPrimarySearch" class="btn btn-outline-info" type="button">Search</button>
-                </div>
-            </div>
+							<br/>
+							<!--https://codepen.io/foxeisen/pen/BGVjaQ-->
+							<div class="text-center">
+							<h3 class=" align-center">My Web Knowledge</h3>
+						   </div>
 
-            <div id="searchPracticeName" class="input-group">
-              <input id="txtPracticeNameSearch" type="text" class="form-control" placeholder="Search Practice Name" aria-label="Practice Name" aria-describedby="btn-practiceName" required>
-                <div class="input-group-append" id="btn-practiceName">
-                  <button id="btnPracticeNameSearch" class="btn btn-outline-info" type="button">Search</button>
-                </div>
-            </div>
+						<div class="row">
+							<div class="col-6 col-12-medium">
+								<ul class="no-bullets">
+								
+										
+									<li class="skill-li">
+										<span class="skill-title">HTML</span>
+										<span class="skill-stars">
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+										</span>
+									</li>
+									
+									<li class="skill-li">
+										<span class="skill-title">CSS</span>
+										<span class="skill-stars">
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+										</span>
+									</li>
 
-              <div id="searchOrgName" class="input-group d-none">
-               <input id="txtOrgNameSearch" type="text" class="form-control" placeholder="Search Organisation Name" aria-label="Organisation Name" aria-describedby="btn-Org-Name">
-                <div class="input-group-append" id="btn-Org-Name">
-                  <button id="btnOrgNameSearch" class="btn btn-outline-info" type="button">Search</button>
-                </div>
-              </div>
-        </div>
+									<li class="skill-li">
+										<span class="skill-title">Bootstrap</span>
+										<span class="skill-stars">
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+										</span>
+									</li>
 
-        <div id="pnlConfirmSearch" class="text-center bg-light load_hide">
-            <hr/>
-                <p id="lblConfirmMultiple" class="lead"></p>
-            <hr/>
-        </div>
+									<li class="skill-li">
+										<span class="skill-title">JSON</span>
+										<span class="skill-stars">
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+										</span>
+									</li>
 
-        <div id="pnlFeedback" class="col-10 alert-danger p-2 mx-auto rounded border border-danger text-center">
-            <i class="bi bi-exclamation-triangle-fill display-5 mr-3"></i><span id="txtFeedback" class="display-5"></span>
-        </div>
+									<li class="skill-li">
+										<span class="skill-title">SOAP / Rest API</span>
+										<span class="skill-stars">
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+										</span>
+									</li>
 
-       <div id="practiceNameConfirmContainer" class="p-3 mb-3">
-        
-        <!--<label class="form-inline numberedPractices display-5 lead p-3 border border-dark bg-light ">1</label>-->
-       </div>
+								</ul>
+							</div>
 
-       <div id="selOrganisationDetails" class="p-3 mb-3 centered">  
-        <!--<table id="tblSelOrganisationDetails" class="table table-bordered"></table>-->
-      </div>
+							<div class="col-6 col-12-medium">
+								<ul class="no-bullets">
+									
+									<li class="skill-li">
+										<span class="skill-title">JQuery</span>
+										<span class="skill-stars">
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+										</span>
+									</li>			
+										
+									<li class="skill-li">
+										<span class="skill-title">JavaScript</span>
+										<span class="skill-stars">
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+										</span>
+									</li>
 
-      <!--<div id="jsSelOrganisationDetails" class="p-3 mb-3 centered"></div>-->
+									<li class="skill-li">
+										<span class="skill-title">Wordpress / Joomla</span>
+										<span class="skill-stars">
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+											<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+										</span>
+									</li>
 
-      <div id="searchAnother">
-          <hr/>
-          <button id="btnNewSearch" href="#" class="btn btn-primary float-right mb-3" type="button">Search another</button>
-      </div>
+									<li class="skill-li">
+										<span class="skill-title">Vue.js</span>
+										<span class="skill-stars">
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>		
+											<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+										</span>
+									</li>
 
-</div>
-    
-</section>
+									<li class="skill-li">
+										<span class="skill-title">Mobile Development</span>
+										<span class="skill-stars">
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+											<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>
+											<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<a href="#two" class="goto-next scrolly">Next</a>
+				</section>
 
-<footer>
+			<!-- Two -->
+				<section id="two" class="spotlight style2 bottom">
+					<span class="image fit main"><img src="images/pic03.jpg" alt="" /></span>
+					<div class="content">
+						<div class="container">
 
-</footer>
+							<div class="row">
+								<div class="col-12 col-12-medium align-center">
+									<header>
+										<h2>Client Side Experience</h2>
+									</header>
+								<!--	<div class="actions float-right">
+										<a href="NHS_Digit_LookUp/index.html" class="button btn-purple">NHS Digital API Demo</a>
+									</div> -->
+								</div>
+								<p>I have experience in both VB and C# including updating legacy code such as Classic ASP and VB Script to bring the project <br/>
+									up-to-date using the newer frameworks and MVC design pattern.
+								</p>
+									
+								
+								
+							</div>
 
-<script type="text/javascript" src="Scripts/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="Scripts/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript" src="Scripts/system-scripts/gppracticecall-epraccur.js"></script>
-   
-</body>
+							<div class="text-center">
+							<h3 class=" align-center"></h3>
+						   </div>
+
+							<div class="row">
+
+								<div class="col-6 col-12-medium">
+									<ul class="no-bullets">
+									
+											
+										<li class="skill-li">
+											<span class="skill-title">Visual Basic</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+											</span>
+										</li>
+										
+										<li class="skill-li">
+											<span class="skill-title">C#</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+											</span>
+										</li>
+	
+										<li class="skill-li">
+											<span class="skill-title">ASP .NET Frameworks</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+											</span>
+										</li>
+	
+										<li class="skill-li">
+											<span class="skill-title">.Net Core</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+											</span>
+										</li>
+
+										<li class="skill-li">
+											<span class="skill-title">MVC Design Pattern</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+											</span>
+										</li>
+									</ul>
+								</div>
+	
+								<div class="col-6 col-12-medium">
+									<ul class="no-bullets">
+										
+										<li class="skill-li">
+											<span class="skill-title">WinForms</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+											</span>
+										</li>			
+											
+										<li class="skill-li">
+											<span class="skill-title">WPF</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+											</span>
+										</li>
+	
+										<li class="skill-li">
+											<span class="skill-title">WCF / Web Services</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+											</span>
+										</li>
+	
+										<li class="skill-li">
+											<span class="skill-title">SQL Server / TSQL</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+											</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a href="#three" class="goto-next scrolly">Next</a>
+				</section>
+
+			<!-- Three -->
+				<section id="three" class="spotlight style3 bottom">
+					<span class="image fit main bottom"><img src="images/pic04.jpg" alt="" /></span>
+					<div class="content">
+						<div class="container">
+
+							<div class="row">
+								<div class="col-12 col-12-medium align-center">
+									<header>
+										<h2>Other Experiences</h2>
+									</header>
+								<!--	<div class="actions float-right">
+										<a href="NHS_Digit_LookUp/index.html" class="button btn-purple">NHS Digital API Demo</a>
+									</div> -->
+								</div>
+								<p>I have experience in both VB and C# including updating legacy code such as Classic ASP and VB Script to bring the project <br/>
+									up-to-date using the newer frameworks and MVC design pattern.
+								</p>
+							</div>
+
+							<div class="text-center">
+							<h3 class=" align-center"></h3>
+						   </div>
+
+							<div class="row">
+
+
+
+
+
+								<div class="col-6 col-12-medium">
+									<ul class="no-bullets">
+									
+											
+										<li class="skill-li">
+											<span class="skill-title">SSRS Reporting Services</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+											</span>
+										</li>
+										
+										<li class="skill-li">
+											<span class="skill-title">Azure DevOps</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+											</span>
+										</li>
+	
+										<li class="skill-li">
+											<span class="skill-title">Rhapsody HL7 Messaging</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+											</span>
+										</li>	
+									</ul>
+								</div>
+	
+								<div class="col-6 col-12-medium">
+									<ul class="no-bullets">
+										
+										
+											
+										<li class="skill-li">
+											<span class="skill-title">Source Control : Git </span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour-empty" aria-hidden="true"></i>			
+											</span>
+										</li>
+	
+										<li class="skill-li">
+											<span class="skill-title">Source Control : TFS  </span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+											</span>
+										</li>
+	
+										<li class="skill-li">
+											<span class="skill-title">Visual Studio / Visual Code</span>
+											<span class="skill-stars">
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>		
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>
+												<i class="fa fa-star star-colour" aria-hidden="true"></i>			
+											</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a href="#five" class="goto-next scrolly">Next</a>
+				</section>
+
+
+			<!-- Five -->
+				<section id="five" class="wrapper style2 special fade">
+					<div class="container">
+						<header>
+							<h2>Get in touch</h2>
+						</header>
+
+						<hr/>
+
+						
+						<!--<div class="row">
+
+						<div class="col-1 col-12-medium">
+							<ul class="icons no-bullets inline">
+								<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+								<span>chan8gfs</span>
+							</ul>
+					    </div>
+				
+					   <div class="col-9 col-12-medium float-left">
+						<p></p>
+					   </div>
+					</div>
+
+
+					<ul class="icons">
+						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+
+					</div>-->
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<!--
+					<ul class="icons">
+						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+				-->
+				
+					<ul class="copyright">
+						<li>Made with much 💗 <br/> Chantelle McCalla -Always improving! </li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
-
