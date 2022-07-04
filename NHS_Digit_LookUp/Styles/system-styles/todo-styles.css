@@ -46,3 +46,68 @@ body{
     color:#f7f7f7 !important;
     border-radius: 0 !important
 }
+
+
+.btnConWidth{
+    width:25%;
+}
+
+
+  @media all and (min-width:481px) and (max-width: 1024px) {
+    #fetchDataChoice{
+        display: flex;
+        flex-flow:nowrap !important;
+        align-items: center;
+        padding: 22px !important;
+   }
+
+   .btnConWidth{
+    width:50% !important;
+    }
+
+    .foundCards{
+        margin-bottom:25px !important;
+    }
+
+    #btnNewSearch{
+        margin-right:60px !important;
+    }
+  }
+  
+  
+  @media all and (min-width:0px) and (max-width: 480px) {
+  
+    #fetchDataChoice{
+        display: flex;
+        flex-flow:nowrap !important;
+        align-items: center;
+        margin-right: 5px!important;
+        margin-left: 5px!important;
+   }
+
+   .hyperB{
+    padding-top:0px !important;
+   }
+
+   .btnConWidth{
+    width:50% !important;
+    }
+
+    .foundCards{
+        margin-bottom:25px !important;
+    }
+
+     #apiSearchInfo{
+        width:100% !important;
+    }
+
+    #btnNewSearch{
+        margin-right:10px !important;
+    }
+  }
+  
+ 
+
+  
+
+  
