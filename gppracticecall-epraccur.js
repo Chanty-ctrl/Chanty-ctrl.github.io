@@ -195,7 +195,7 @@ fetchViaNonPrimaryRole = (nonPriRoleID) => {
           //.catch(console.error);
           .catch(err => {
             $("#pnlFeedback").show();
-            $("#txtFeedback").text(err);
+            $("#txtFeedback").text(err + " :: please check the primary role number and try again.");
           });
 }
 
@@ -229,7 +229,7 @@ fetchViaPracticeName = (practiceName) => {
     //.catch(console.error);
     .catch(err => {
         $("#pnlFeedback").show();
-        $("#txtFeedback").text(err);
+        $("#txtFeedback").text(err + " :: please check the practice name and try again.");
     });
 }
 
