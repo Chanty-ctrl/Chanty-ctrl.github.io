@@ -81,16 +81,34 @@ document.getElementById("btnPrimaryRoleSearch").addEventListener("click", () => 
 
 document.getElementById("btnNonPrimarySearch").addEventListener("click", () => {
     let searchNonPrimary = document.getElementById('txtNonPrimarySearch').value;
-    $("#practiceNameConfirmContainer").empty();
-    fetchViaNonPrimaryRole(searchNonPrimary);
-    scrollMe();
+
+    if (!(searchNonPrimary == "")) {  
+        $("#practiceNameConfirmContainer").empty();
+        fetchViaNonPrimaryRole(searchNonPrimary);
+        scrollMe();
+    } else {
+        $("#txtNonPrimarySearch").addClass("is-invalid");
+    }
 });
+
+$("#txtNonPrimarySearch").bind("keyup", () => {
+    $("#txtNonPrimarySearch").removeClass("is-invalid");
+})
+
+$("#txtPracticeNameSearch").bind("keyup", () => {
+    $("#txtPracticeNameSearch").removeClass("is-invalid");
+})
 
 document.getElementById("btnPracticeNameSearch").addEventListener("click", () => {   
     let searchPracticeName = document.getElementById('txtPracticeNameSearch').value;
-    $("#practiceNameConfirmContainer").empty();
-    fetchViaPracticeName(searchPracticeName)
-    scrollMe(); 
+    
+    if (!(searchPracticeName == "")) {  
+        $("#practiceNameConfirmContainer").empty();
+        fetchViaPracticeName(searchPracticeName)
+        scrollMe(); 
+    } else {
+        $("#txtPracticeNameSearch").addClass("is-invalid");
+    }
 });
 
 document.getElementById("btnOrgNameSearch").addEventListener("click", () => {
@@ -122,7 +140,7 @@ document.getElementById("btnNewSearch").addEventListener('click', () =>{
 
 // Primary Role (RO177) ...
 fetchViaPrimaryRole = () => {
-   fetch('https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations?PrimaryRoleId=RO177')
+   fetch('https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations?PrimaryRoleId=RO177') //RO177
    .then(result => result.json())
    .then(response => {
 
@@ -136,8 +154,17 @@ fetchViaPrimaryRole = () => {
       createConfirmPanel(response.Organisations[i], i + 1);
     }
        console.log(response);
+
+       if (response.Organisations.length < 1){
+         $("#pnlFeedback").show();
+         $("#txtFeedback").text("Unable to find any organisations within Primary Roles");
+       }
    })
-   .catch(console.error);
+   //.catch(console.error);
+   .catch(err => {
+    $("#pnlFeedback").show();
+    $("#txtFeedback").text(err);
+ });
 }
 
 // Non-Primary Role ...
@@ -148,6 +175,12 @@ fetchViaNonPrimaryRole = (nonPriRoleID) => {
         .then(response => {
            
          console.log(response)
+
+         if (response.Organisations.length < 1){
+            $("#pnlFeedback").show();
+            $("#txtFeedback").text("Unable to find any organisations within Primary Roles selected");
+          }
+
         if(response.Organisations.length > 1) {
             $("#pnlConfirmSearch").show();
             $("#lblConfirmMultiple").text("There are a total of " + response.Organisations.length + " practices found, please confirm a practice");  
@@ -159,7 +192,11 @@ fetchViaNonPrimaryRole = (nonPriRoleID) => {
            }
               console.log(response);
           })
-          .catch(console.error);
+          //.catch(console.error);
+          .catch(err => {
+            $("#pnlFeedback").show();
+            $("#txtFeedback").text(err + " :: please check the primary role number and try again.");
+          });
 }
 
 // GP Practice Name Search ... 
@@ -170,7 +207,11 @@ fetchViaPracticeName = (practiceName) => {
 
         //console.log(response);
         // console.log(response.Organisations[0]);
-     
+        if (response.Organisations.length < 1){
+            $("#pnlFeedback").show();
+            $("#txtFeedback").text("Unable to find practice name details.");
+          }
+
         if(response.Organisations.length > 1) {
             //document.getElementById('pnlConfirmSearch').style.visibility = "visible";
             $("#pnlConfirmSearch").show();
@@ -185,7 +226,11 @@ fetchViaPracticeName = (practiceName) => {
             createConfirmPanel(response.Organisations[i], i + 1);
         }
     })
-    .catch(console.error);
+    //.catch(console.error);
+    .catch(err => {
+        $("#pnlFeedback").show();
+        $("#txtFeedback").text(err + " :: please check the practice name and try again.");
+    });
 }
 
 // GP Practice code search ...
@@ -208,7 +253,11 @@ fetchViaPracticeCode = (orgCode) =>{
                 createConfirmPanel(response.Organisation[i], i + 1);
             }*/
         })
-        .catch(console.error);      
+       // .catch(console.error);      
+       .catch(err => {
+        $("#pnlFeedback").show();
+        $("#txtFeedback").text(err);
+       });
 }
 
 // Confirmed GP Practice Name Search ... 
@@ -296,7 +345,7 @@ createConfirmPanel = (response, orgCount) => {
 
    $('#practiceNameConfirmContainer').append(
     ' <label class="form-inline numberedPractices lead p-2 border shadow-sm">'+ orgCount +'</label>' +
-    '<div class="card w-75 centered mb-lg-3">' +
+    '<div class="card w-75 centered mb-lg-3 foundCards">' +
     '<h5 class="card-header">' + practiceName + '</h5>' +
     '<div class="card-body">' +
     '<h5 class="card-title">Practice Status :: '+ orgStats +'</h5>' +
@@ -311,7 +360,7 @@ createConfirmPanel = (response, orgCount) => {
      '</tr>' +
  '</tbody></table>' +
  '<div class="mb-4 bg-light">' + 
- ' <button id="' + newButtonID + '"class="btn btn-success float-right ml-1 w-25 type="button">Confirm</button>' +
+ ' <button id="' + newButtonID + '"class="btn btn-success float-right ml-1 btnConWidth type="button">Confirm</button>' +
  '</div>' +
  ' </div>'+
  ' </div>');
@@ -367,5 +416,6 @@ clearSearchOptions = () => {
 
     $("#pnlConfirmSearch").hide();
     $("#sectionSearch").hide();
+    $("#pnlFeedback").hide();
     //document.getElementById('pnlConfirmSearch').style.visibility = "hidden";
 }
