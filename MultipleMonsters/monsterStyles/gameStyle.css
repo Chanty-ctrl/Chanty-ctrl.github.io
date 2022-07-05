@@ -12,8 +12,8 @@ body {
 
 
 #divGame table td {
-    width: 120px;
-    height: 100px;
+    width: 8%;
+    height: 8%;
     cursor: pointer;
 }
 
